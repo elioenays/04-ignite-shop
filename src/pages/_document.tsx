@@ -18,6 +18,15 @@ export default function Document() {
           href='https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'
           rel='stylesheet'
         />
+        <link
+          rel='icon'
+          type='image/svg+xml'
+          href='/ignite.svg'
+        />
+        <link
+          rel='apple-touch-icon'
+          href='/ignite.svg'
+        />
         <style
           id='stitches'
           dangerouslySetInnerHTML={{ __html: getCssText }}
