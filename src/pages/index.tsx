@@ -23,6 +23,7 @@ export default function Home({ products }: HomeProps) {
   const [sliderRef] = useKeenSlider({ slides: { perView: 3, spacing: 48 } })
 
   return (
+<<<<<<< HEAD
     <>
       <Head>
         <title>Home | Ignite shop</title>
@@ -56,6 +57,35 @@ export default function Home({ products }: HomeProps) {
         })}
       </HomeContainer>
     </>
+=======
+    <HomeContainer
+      ref={sliderRef}
+      className='keen-slider'
+    >
+      {products.map((product) => {
+        return (
+          <Link
+            href={`/product/${product.id}`}
+            key={product.id}
+            prefetch={false}
+          >
+            <Product className='keen-slider__slide'>
+              <Image
+                src={product.imageUrl}
+                width={520}
+                height={480}
+                alt=''
+              />
+              <footer>
+                <strong>{product.name}</strong>
+                <span>{product.price}</span>
+              </footer>
+            </Product>
+          </Link>
+        )
+      })}
+    </HomeContainer>
+>>>>>>> 3ff92c2df3344a1d0564b034458537a01a3fd189
   )
 }
 

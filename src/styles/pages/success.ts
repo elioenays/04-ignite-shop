@@ -7,6 +7,7 @@ export const SuccessContainer = styled('main', {
   justifyContent: 'center',
   margin: '0 auto',
   height: 656,
+<<<<<<< HEAD
 
   h1: {
     fontSize: '$2xl',
@@ -37,6 +38,8 @@ export const SuccessContainer = styled('main', {
       color: '$green300',
     },
   },
+=======
+>>>>>>> 3ff92c2df3344a1d0564b034458537a01a3fd189
 })
 
 export const ImageContainer = styled('div', {
@@ -47,8 +50,11 @@ export const ImageContainer = styled('div', {
   borderRadius: 8,
   padding: '0.25rem',
 
+<<<<<<< HEAD
   marginTop: '4rem',
 
+=======
+>>>>>>> 3ff92c2df3344a1d0564b034458537a01a3fd189
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

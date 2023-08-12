@@ -1,6 +1,7 @@
 import React from 'react'
 import { ImageContainer, SuccessContainer } from '../styles/pages/success'
 import Link from 'next/link'
+<<<<<<< HEAD
 import { GetServerSideProps } from 'next'
 import { stripe } from '../lib/stripe'
 import Stripe from 'stripe'
@@ -69,4 +70,22 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       product: { name: product.name, imageUrl: product.images[0] },
     },
   }
+=======
+
+export default function Success() {
+  return (
+    <SuccessContainer>
+      <h1>Compra efetuada</h1>
+      <ImageContainer></ImageContainer>
+
+      <p>
+        Uhuul <strong>Elioenay Silva</strong>, sua{' '}
+        <strong>Camiseta Beyond the Limits</strong>
+        já está a caminho da sua casa.
+      </p>
+
+      <Link href='/'>Voltar ao catalogo</Link>
+    </SuccessContainer>
+  )
+>>>>>>> 3ff92c2df3344a1d0564b034458537a01a3fd189
 }
