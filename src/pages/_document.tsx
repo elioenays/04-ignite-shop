@@ -21,11 +21,11 @@ export default function Document() {
         <link
           rel='icon'
           type='image/svg+xml'
-          href='/ignite.svg'
+          href='/ignite.png'
         />
         <link
           rel='apple-touch-icon'
-          href='/ignite.svg'
+          href='/ignite.png'
         />
         <style
           id='stitches'
