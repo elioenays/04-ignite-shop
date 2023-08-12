@@ -8,7 +8,7 @@ export default async function handleClientScriptLoad(
   const { priceId } = req.body
 
   if (req.method !== 'POST') {
-    return res.json({ error: 'Method not allowed' })
+    return res.status(405).json({ error: 'Method not allowed' })
   }
 
   if (!priceId) {
