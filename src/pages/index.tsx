@@ -8,13 +8,14 @@ import { stripe } from '../lib/stripe'
 import { GetStaticProps } from 'next'
 import Stripe from 'stripe'
 import Link from 'next/link'
+import Head from 'next/head'
 
 interface HomeProps {
   products: {
     id: string
     name: string
     imageUrl: string
-    price: number
+    price: string
   }[]
 }
 
@@ -22,6 +23,41 @@ export default function Home({ products }: HomeProps) {
   const [sliderRef] = useKeenSlider({ slides: { perView: 3, spacing: 48 } })
 
   return (
+<<<<<<< HEAD
+    <>
+      <Head>
+        <title>Home | Ignite shop</title>
+      </Head>
+
+      <HomeContainer
+        ref={sliderRef}
+        className='keen-slider'
+      >
+        {products.map((product) => {
+          return (
+            <Link
+              href={`/product/${product.id}`}
+              key={product.id}
+              prefetch={false}
+            >
+              <Product className='keen-slider__slide'>
+                <Image
+                  src={product.imageUrl}
+                  width={520}
+                  height={480}
+                  alt=''
+                />
+                <footer>
+                  <strong>{product.name}</strong>
+                  <span>{product.price}</span>
+                </footer>
+              </Product>
+            </Link>
+          )
+        })}
+      </HomeContainer>
+    </>
+=======
     <HomeContainer
       ref={sliderRef}
       className='keen-slider'
@@ -29,8 +65,9 @@ export default function Home({ products }: HomeProps) {
       {products.map((product) => {
         return (
           <Link
-            key={product.id}
             href={`/product/${product.id}`}
+            key={product.id}
+            prefetch={false}
           >
             <Product className='keen-slider__slide'>
               <Image
@@ -48,6 +85,7 @@ export default function Home({ products }: HomeProps) {
         )
       })}
     </HomeContainer>
+>>>>>>> 3ff92c2df3344a1d0564b034458537a01a3fd189
   )
 }
 
@@ -59,16 +97,14 @@ export const getStaticProps: GetStaticProps = async () => {
   const products = response.data.map((product) => {
     const price = product.default_price as Stripe.Price
 
-    if (price.unit_amount) {
-      return {
-        id: product.id,
-        name: product.name,
-        imageUrl: product.images[0],
-        price: new Intl.NumberFormat('pt-BR', {
-          style: 'currency',
-          currency: 'BRL',
-        }).format(price.unit_amount / 100),
-      }
+    return {
+      id: product.id,
+      name: product.name,
+      imageUrl: product.images[0],
+      price: new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+      }).format(price.unit_amount! / 100),
     }
   })
 
